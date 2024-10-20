@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Target Health - Service Detail{% endblock %}
+
+{% block content %}
+
+    <!-- bradcam_area_start  -->
+  <div class="container">
+    <div class="row">
+        <img src="{{ service.image.url }}" class="services-img" alt="{{ service.title }}">
+        <h3 class="my-3">{{ service.title }}</h3>
+        <p>
+            {{ service.introduction }}
+        </p>
+        <div class="col-8">
+            <ul style="line-height: 2.5">
+                {% for equipment in first_column %}
+                    <li><span class="mr-2">&#10003;</span> {{ equipment.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-3 d-none d-lg-block">
+            <ul style="line-height: 2.5">
+                {% for equipment in second_column %}
+                    <li><span class="mr-2">&#10003;</span> {{ equipment.name }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <p class="my-5">
+            {{ service.conclusion }}
+        </p>
+    </div>
+  </div>
+    <!-- bradcam_area_end  -->
+
+    <!-- Emergency_contact start -->
+    {% include "emergency_contact.html" %}
+    <!-- Emergency_contact end -->
+
+{% endblock %}
+
+    

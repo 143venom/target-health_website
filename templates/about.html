@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Target Health - About{% endblock %}
+
+{% block content %}
+
+    <!-- bradcam_area_start  -->
+    <div class="bradcam_area breadcam_bg bradcam_overlay">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="bradcam_text">
+              <h3>About Us</h3>
+              <p><a href="{% url 'index' %}">Home /</a> About</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- bradcam_area_end  -->
+
+    <!-- welcome_docmed_area_start -->
+    <div class="welcome_docmed_area">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-6">
+            <div class="welcome_thumb">
+              <div class="thumb_1">
+                <img src="{{ about.image1.url }}" alt="" />
+              </div>
+              <div class="thumb_2">
+                <img src="{{ about.image2.url }}" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-6 col-lg-6">
+            <div class="welcome_docmed_info">
+              <h2>{{ about.title }}</h2>
+              <h3>
+                {{ about.maintitle }}
+              </h3>
+              <p>
+                {{ about.description }}
+              </p>
+              <ul>
+                {% for quality in about.qualities.all %}
+                <li><i class="flaticon-right"></i>{{quality }}</li>
+                {% endfor %}
+              </ul>
+              <a href="#" class="boxed-btn3-white-2">Learn More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- welcome_docmed_area_end -->
+
+    <!-- testmonial_area_start -->
+    {% include "testimonial_area.html" %}
+    <!-- testmonial_area_end -->
+
+    <!-- business_expert_area_start  -->
+    {% include "business_expert_area.html" %}
+    <!-- business_expert_area_end  -->
+
+    <!-- expert_doctors_area_start -->
+    {% include "recent_blogs.html" %}
+    <!-- expert_doctors_area_end -->
+
+    <!-- Emergency_contact start -->
+    {% include "emergency_contact.html" %}
+    <!-- Emergency_contact end -->
+
+{% endblock %}

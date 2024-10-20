@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">Appointment Booking Failed!</h4>
+            <p>There was an error while booking your appointment. Please check the form and try again.</p>
+            <a href="{% url 'index' %}" class="btn btn-primary">Go to Home</a>
+        </div>
+    </div>
+{% endblock %}

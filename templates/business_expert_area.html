@@ -1,0 +1,56 @@
+<!-- business_expert_area_start  -->
+<div class="business_expert_area">
+  <div class="business_tabs_area">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <ul class="nav" id="myTab" role="tablist">
+            {% for business in business_info %}
+              <li class="nav-item">
+                <a class="nav-link {% if forloop.first %}active{% endif %}" 
+                  id="{{ business.title|slugify }}-tab" 
+                  data-toggle="tab" 
+                  href="#{{ business.title|slugify }}" 
+                  role="tab" 
+                  aria-controls="{{ business.title|slugify }}" 
+                  aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                  {{ business.title }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="border_bottom">
+      <div class="tab-content" id="myTabContent">
+        {% for business in business_info %}
+          <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" 
+              id="{{ business.title|slugify }}" 
+              role="tabpanel" 
+              aria-labelledby="{{ business.title|slugify }}-tab">
+            <div class="row align-items-center">
+              <div class="col-xl-6 col-md-6">
+                <div class="business_info">
+                  <div class="icon">
+                    <i class="flaticon-first-aid-kit"></i>
+                  </div>
+                  <h3>{{ business.maintitle }}</h3>
+                  <p>{{ business.description }}</p>
+                </div>
+              </div>
+              <div class="col-xl-6 col-md-6">
+                <div class="business_thumb">
+                  <img src="{{ business.image.url }}" alt="{{ business.title }}" />
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+<!-- business_expert_area_end  -->

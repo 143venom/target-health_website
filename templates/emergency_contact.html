@@ -1,0 +1,23 @@
+<!-- Emergency_contact start -->
+<div class="Emergency_contact">
+  <div class="conatiner-fluid p-0">
+    <div class="row no-gutters">
+      {% for emergency in emergency_service %}
+      <div class="col-xl-6">
+        <div
+          class="single_emergency d-flex align-items-center justify-content-center overlay_skyblue" style="background-image: url('{{ emergency.background_image.url }}');"
+        >
+          <div class="info">
+            <h3>{{ emergency.title }}</h3>
+            <p>{{ emergency.content }}</p>
+          </div>
+          <div class="info_button">
+            <a href="#" class="boxed-btn3-white">{{ emergency.buttontext }}</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+<!-- Emergency_contact end -->

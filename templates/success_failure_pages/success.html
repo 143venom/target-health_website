@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">Appointment Confirmed!</h4>
+            <p>Your appointment has been successfully booked.</p>
+            <hr>
+            <p class="mb-0">Details:</p>
+            <ul>
+                <li>Name: {{ appointment.name }}</li>
+                <li>Date: {{ appointment.appointment_date }}</li>
+                <li>Time: {{ appointment.appointment_time }}</li>
+                <li>Department: {{ appointment.department }}</li>
+                <li>Doctor: {{ appointment.doctor }}</li>
+            </ul>
+            <a href="{% url 'index' %}" class="btn btn-primary">Go to Home</a>
+        </div>
+    </div>
+{% endblock %}

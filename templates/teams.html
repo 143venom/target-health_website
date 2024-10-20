@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Target Health - Teams{% endblock %}
+
+{% block content %}
+
+    
+    <!-- bradcam_area_start  -->
+    <div class="bradcam_area bradcam_overlay" style="background-image: url('{{ bradcam_bg.team_bg.url }}');">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-12">
+            <div class="bradcam_text">
+              <h3>Doctors</h3>
+              <p><a href="{% url 'index' %}">Home /</a> Doctors</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- bradcam_area_end  -->
+
+    <!-- expert_doctors_area_start -->
+    <div class="expert_doctors_area doctor_page">
+      <div class="container">
+        <div class="row">
+          {% for doctor in doctors %}
+          <div class="col-md-6 col-lg-3">
+            <div class="single_expert mb-40">
+              <div class="expert_thumb">
+                <img src="{{ doctor.image.url }}" alt="" />
+              </div>
+              <div class="experts_name text-center">
+                <h3>{{ doctor.name }}</h3>
+                <span>{{ doctor.designation }}</span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <!-- expert_doctors_area_end -->
+
+    <!-- testmonial_area_start -->
+    {% include "testimonial_area.html" %}
+    <!-- testmonial_area_end -->
+
+    <!-- business_expert_area_start  -->
+    {% include "business_expert_area.html" %}
+    <!-- business_expert_area_end  -->
+
+    <!-- Emergency_contact start -->
+    {% include "Emergency_contact.html" %}
+    <!-- Emergency_contact end -->
+
+  {% endblock %}
